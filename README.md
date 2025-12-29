@@ -1,5 +1,4 @@
-# SudokuSpace
-by Lucas Olmeta
+# SudokuSpace `<kbd>`by Lucas Olmeta`</kbd>`
 
 A simple, responsive Sudoku game built with React.
 
