@@ -40,7 +40,10 @@ export default function SudokuGame() {
   return (
     <>
       <Board grid={grid} given={given} onChangeCell={onChangeCell} />
-      <button onClick={generate}>Generate</button>
+      
+      <div className="container">
+        <button onClick={generate}>Generate</button>
+      </div>
     </>
   );
 }
