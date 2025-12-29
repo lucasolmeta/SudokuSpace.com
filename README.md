@@ -15,7 +15,7 @@ A simple, responsive Sudoku game built with React.
 - JavaScript
 - CSS Grid / Flexbox
 
-## Run Online
+## Play Online
 [`SudokuSpace.com`](https://SudokuSpace.com)
 
 ## Run Locally
