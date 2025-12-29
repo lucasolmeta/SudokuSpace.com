@@ -5,8 +5,18 @@ import { buildSudoku, initArray } from '../engine/sudoku';
 const emptyGrid = initArray();
 
 export default function SudokuGame() {
+
+  // Current visible board, calling setGrid redraws the 81 cells
+  // setGrid generated automatically by React to update grid
+
   const [grid, setGrid] = useState(emptyGrid());
+
+  // Correct completed board, calling setSolution doesn't affect rendering directly
+
   const [solution, setSolution] = useState(emptyGrid());
+
+  // Marks which cells are fixed at start, used to disable editing
+
   const [given, setGiven] = useState(
     Array.from({ length: 9 }, () => Array(9).fill(false))
   );

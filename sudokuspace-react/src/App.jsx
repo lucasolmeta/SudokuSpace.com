@@ -9,7 +9,8 @@ function App() {
     <>
       <Header />
       <Logo />
-      <Board />
+      <Board grid={grid} given={given} onChangeCell={onChangeCell} />
+      <button onClick={generate}>Generate</button>
     </>
   );
 }
