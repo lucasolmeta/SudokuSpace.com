@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Board from './Board';
-import { buildSudoku, initArray } from '../engine/sudoku';
+import { buildSudoku, initArray } from '../engine/generation.js';
+import Board from './Board.jsx';
 
 const emptyGrid = initArray();
 
@@ -9,11 +9,11 @@ export default function SudokuGame() {
   // Current visible board, calling setGrid redraws the 81 cells
   // setGrid generated automatically by React to update grid
 
-  const [grid, setGrid] = useState(emptyGrid());
+  const [grid, setGrid] = useState(initArray());
 
   // Correct completed board, calling setSolution doesn't affect rendering directly
 
-  const [solution, setSolution] = useState(emptyGrid());
+  const [solution, setSolution] = useState(initArray());
 
   // Marks which cells are fixed at start, used to disable editing
 

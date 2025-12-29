@@ -50,6 +50,10 @@ export function buildSudoku (){
     return { puzzle, solution };
 }
 
+export function initArray(){
+    return Array(9).fill(0).map(() => Array(9).fill(0));
+}
+
 function removeNums(grid){
     //REDO THIS FUNCTION
     for(let i = 0; i < 40; i++){
@@ -68,10 +72,6 @@ function removeNums(grid){
     }
 
     return grid;
-}
-
-function initArray(){
-    return Array(9).fill(0).map(() => Array(9).fill(0));
 }
 
 function checkValidity(num, row, col, grid){

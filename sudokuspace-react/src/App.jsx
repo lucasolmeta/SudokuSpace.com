@@ -1,16 +1,13 @@
-export default App
-
 import Header from './components/Header.jsx';
 import Logo from './components/Logo.jsx';
-import Board from './components/Board.jsx';
+import SudokuGame from './components/SudokuGame.jsx';
 
-function App() {
+export default function App() {
   return (
     <>
       <Header />
       <Logo />
-      <Board grid={grid} given={given} onChangeCell={onChangeCell} />
-      <button onClick={generate}>Generate</button>
+      <SudokuGame />
     </>
   );
 }
