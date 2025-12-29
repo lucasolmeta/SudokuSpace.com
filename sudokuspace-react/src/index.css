@@ -23,13 +23,13 @@ body{
 }
 
 .favicon{
-  height: 50%;
+  height: 40%;
 
   filter: invert(1);
 }
 
 .linkedInButton{
-  height: 50%;
+  height: 40%;
 }
 
 .logo{
@@ -69,7 +69,7 @@ body{
   background-color: white;
   border: 0.5px solid gray;
 
-  font-size: 150%;
+  font-size: 3vmin;
   text-align: center;
   font-family: "Raleway", sans-serif;
   font-weight: 100;
@@ -96,8 +96,9 @@ button{
 
   background-color: transparent;
   border: 1px solid white;
+  border-radius: 1vmin;
 
-  font-size: 3vmin;
+  font-size: 2.5vmin;
   text-align: center;
   font-family: "Raleway", sans-serif;
   font-weight: 100;
