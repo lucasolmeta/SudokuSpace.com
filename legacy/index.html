@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sudoku Space</title>
+        <link rel="icon" type="image/x-icon" href="favicon.png">
+        <link href="style.css" rel="stylesheet">
+        <script type="module" src="setup.mjs"></script>
+    </head>
+
+    <body>
+        <div id = "header">
+            <img id = "favicon" src = "favicon.png">
+            <a href = "https://linkedin.com/in/lolmeta" target="blank">
+                <img id = "linkedInButton" src="LinkedIn.png">
+            </a>
+        </div>
+
+        <div id = "logoBox">
+            <img id = "logo" src="logo.png">
+        </div>
+
+        <div id = "alert">Are you sure you want to generate a new sudoku? Your current progress will be lost.
+            <div id="menuButtonBox">
+                <button class = "menuButton" onClick="confirmButtonPressed()">Confirm</button>
+                <button  class = "menuButton" onClick="cancelButtonPressed()">Cancel</button>
+            </div>
+        </div>
+
+        <div id="outerBox"></div>
+
+        <div id="sudokuFunctionButtonDiv">
+            <button type="button" onClick="generateRequest()" class="sudokuFunctionButtons">Generate Sudoku</button>
+            <button type="button" onClick="checkSudoku()" class="sudokuFunctionButtons">Check Sudoku</button>
+        </div>
+    </body>
+</html>
