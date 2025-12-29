@@ -69,25 +69,38 @@ body{
   background-color: white;
   border: 0.5px solid gray;
 
-  font-size: size;
+  font-size: 150%;
   text-align: center;
   font-family: "Raleway", sans-serif;
   font-weight: 100;
   outline: none;
 }
 
+.cell.correct{ 
+  color: blue; 
+}
+
+.cell.wrong{ 
+  color: red; 
+}
+
+.given{
+  background-color: rgb(225,225,225);
+}
+
 button{
-  position: sticky;
-
-  align-content: center;
-
-  font-family: "Raleway", sans-serif;
-  font-weight: 100;
+  width: 15vmin;
+  height: 6vmin;
+  margin: 2vmin;
 
   background-color: transparent;
-  border-color: rgb(255,255,255);
-  border-style: solid;
-  color: rgb(255,255,255);
+  border: 1px solid white;
+
+  font-size: 3vmin;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: 100;
+  color: white;
 }
 
 button:hover {

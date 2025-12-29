@@ -9,7 +9,7 @@ export default function Board({ grid, given, onChangeCell }) {
                   const c = bc * 3 + lc;
                   return (
                   <input
-                    className="cell"
+                    className={`cell ${given[r][c] ? 'given' : ''} ${status ? status : ''}`}
                     maxLength={1}
                     key={`${r}-${c}`}
                     value={grid[r][c] || ''}
