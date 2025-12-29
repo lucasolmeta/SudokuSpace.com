@@ -5,27 +5,25 @@ import Board from './Board.jsx';
 const emptyGrid = initArray();
 
 export default function SudokuGame() {
-
-  // Current visible board, calling setGrid redraws the 81 cells
-  // setGrid generated automatically by React to update grid
+  //current visible board, calling setGrid redraws the 81 cells
+  //setGrid generated automatically by React to update grid
 
   const [grid, setGrid] = useState(initArray());
 
-  // Correct completed board, calling setSolution doesn't affect rendering directly
+  //correct completed board, calling setSolution doesn't affect rendering directly
 
   const [solution, setSolution] = useState(initArray());
 
-  // Marks which cells are fixed at start, used to disable editing
-
+  //marks which cells are fixed at start, used to disable editing
   const [given, setGiven] = useState(
     Array.from({ length: 9 }, () => Array(9).fill(false))
   );
 
-  // Marks which cells are empty
-
+  //marks which cells are empty
   const emptyStatus = () => Array.from({ length: 9 }, () => Array(9).fill(''));
   const [status, setStatus] = useState(emptyStatus());
 
+  //creates new sudoku state
   function generate() {
     const { puzzle, solution } = buildSudoku();
     setGrid(puzzle);
@@ -33,6 +31,7 @@ export default function SudokuGame() {
     setGiven(puzzle.map(row => row.map(v => v !== 0)));
   }
 
+  //checks sudoku, recoloring numbers and calling alert if correct
   function check() {
     const next = status.map(row => row.slice());
     let solved = true;
@@ -59,6 +58,7 @@ export default function SudokuGame() {
     if (solved) alert('Congratulations! You solved the Sudoku 🎉!');
   }
 
+  //called upon change in cell value, limits inputs to only numbers and resets status
   function onChangeCell(r, c, raw) {
     const v = raw.replace(/[^1-9]/g, '');
     setGrid(g => {
@@ -74,6 +74,7 @@ export default function SudokuGame() {
     });
   }
 
+  //returns board component with generate and check buttons
   return (
     <>
       <Board grid={grid} given={given} status={status} onChangeCell={onChangeCell} />

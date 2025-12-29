@@ -1,8 +1,9 @@
 export function buildSudoku (){
     let solution = initArray();
 
-    for(let row = 0; row < 9; row++){
+    //nested for loops go row by row, col by col and try different random numbers until one is placed
 
+    for(let row = 0; row < 9; row++){
         let numsAvailable = [1,2,3,4,5,6,7,8,9];
         let iterations = 0;
 
@@ -11,7 +12,6 @@ export function buildSudoku (){
             let numPlaced = false;
     
             while(numPlaced == false){
-
                 let i = Math.floor(Math.random() * numsAvailable.length);
 
                 iterations++;
@@ -51,43 +51,51 @@ export function buildSudoku (){
 }
 
 export function initArray(){
+    // init 9x9 array filled with zeroes
     return Array(9).fill(0).map(() => Array(9).fill(0));
 }
 
-function removeNums(grid){
-    //REDO THIS FUNCTION
-    for(let i = 0; i < 40; i++){
-
-        let numRemoved = false;
-
-        while(!numRemoved){
-            var row = Math.floor(Math.random() * 9);
-            var col = Math.floor(Math.random() * 9);
-
-            if(grid[row][col]!=0){
-                grid[row][col]=0;     
-                numRemoved = true;      
-            }
-        }
+function removeNums(grid) {
+    // collect all cell positions
+    const positions = [];
+    for (let r = 0; r < 9; r++) {
+      for (let c = 0; c < 9; c++) {
+        positions.push([r, c]);
+      }
     }
+  
+    // shuffle positions
+    for (let i = positions.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [positions[i], positions[j]] = [positions[j], positions[i]];
+    }
+  
+    // remove first 40 cells
 
+    for (let i = 0; i < 40; i++) {
+      const [r, c] = positions[i];
+      grid[r][c] = 0;
+    }
+  
     return grid;
-}
+  }
 
 function checkValidity(num, row, col, grid){
-    
+    //check if duplicate in row
     for (let r = 0; r < 9; r++){
         if(grid[r][col] == num){
             return false;
         }
     }
     
+    //check if duplicate in col
     for (let c = 0; c < col; c++){
         if(grid[row][c] == num){
             return false;
         }
     }
 
+    //check if duplicate in box
     let boxRow = Math.floor(row/3);
     let boxCol = Math.floor(col/3);
 
@@ -101,17 +109,3 @@ function checkValidity(num, row, col, grid){
 
     return true;
 }
-
-/*
-export let solution = [];
-export let puzzle = [];
-export let initGeneration = true;
-
-export function setSolution(sol){
-    solution = sol;
-}
-
-export function setPuzzle(puz){
-    puzzle = puz;
-}
-*/
