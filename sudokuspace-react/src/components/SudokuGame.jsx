@@ -34,19 +34,29 @@ export default function SudokuGame() {
   }
 
   function check() {
-    setStatus(prev => {
-      const next = prev.map(row => row.slice());
+    const next = status.map(row => row.slice());
+    let solved = true;
   
-      for (let r = 0; r < 9; r++) {
-        for (let c = 0; c < 9; c++) {
-          if (given[r][c]) continue;
-          if (grid[r][c] === 0) continue;
+    for (let r = 0; r < 9; r++) {
+      for (let c = 0; c < 9; c++) {
+        if (given[r][c]) continue;
   
-          next[r][c] = (grid[r][c] === solution[r][c]) ? 'correct' : 'wrong';
+        if (grid[r][c] === 0) {
+          solved = false;
+          continue;
+        }
+  
+        if (grid[r][c] === solution[r][c]) next[r][c] = 'correct';
+        else {
+          next[r][c] = 'wrong';
+          solved = false;
         }
       }
-      return next;
-    });
+    }
+  
+    setStatus(next);
+  
+    if (solved) alert('Congratulations! You solved the Sudoku 🎉!');
   }
 
   function onChangeCell(r, c, raw) {
@@ -54,6 +64,12 @@ export default function SudokuGame() {
     setGrid(g => {
       const next = g.map(row => row.slice());
       next[r][c] = v === '' ? 0 : Number(v);
+      return next;
+    });
+  
+    setStatus(s => {
+      const next = s.map(row => row.slice());
+      next[r][c] = '';
       return next;
     });
   }
