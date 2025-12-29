@@ -1,24 +1,24 @@
 # SudokuSpace
-# *By Lucas Olmeta*
+## *By Lucas Olmeta*
 
 A simple, responsive Sudoku game built with React.
 
-## Features
+### Features
 - Generates a new Sudoku puzzle
 - Editable cells with input validation
 - Check button highlights correct (blue) and incorrect (red) entries
 - Alert when the puzzle is fully solved
 - Responsive layout (scales with window size)
 
-## Tech Stack
+### Tech Stack
 - React
 - JavaScript
 - CSS Grid / Flexbox
 
-## Play Online
+### Play Online
 [`SudokuSpace.com`](https://SudokuSpace.com)
 
-## Run Locally
+### Run Locally
 ```bash
 npm install
 npm run dev
